@@ -6,7 +6,7 @@ Create a set of easy‑to‑use Go packages that implement [full support for the
 
 The implementation will be **low‑level, spec‑compliant, and library‑oriented**, suitable for both standalone GraphQL servers and use as a **federated subgraph** in a broader architecture.
 
----
+
 ## **High‑Level Architecture**
 
 ### Core Specification Compliance**
@@ -14,37 +14,35 @@ The implementation will be **low‑level, spec‑compliant, and library‑orient
 - Ensure all parsing, execution, coercion, and validation rules follow the official grammar and algorithms.
 - Reference sections such as language grammar, input values, coercion rules, execution semantics, and validation rules directly in implementation decisions.
 
----
-
 ## **Major Functional Components**
 
 ### **1. Query Language Parser** 
 - Tokenize and parse GraphQL documents according to the spec’s grammar. ([Language / Document Structure](https://spec.graphql.org/September2025/#2Language))
-- Produce an abstract syntax tree (AST) representing operations, fragments, variables, directives, and selections. ([Language / Document Structure](https://spec.graphql.org/September2025/#2Language))
-- Must handle all valid syntax, including nested queries, fragments, and variable usages. ([Language / Document Structure](https://spec.graphql.org/September2025/#2Language))
+- Produce an abstract syntax tree (AST) representing operations, fragments, variables, directives, and selections. ([Language / Document Structure](https://spec.graphql.org/September2025/sec-Language))
+- Must handle all valid syntax, including nested queries, fragments, and variable usages. ([Language / Document Structure](https://spec.graphql.org/September2025/sec-Language))
 
 ### **2. Schema Model**
-- Represent types, scalars, enums, interfaces, unions, input objects, lists, and non‑null types according to the spec’s type system. ([Type System](https://spec.graphql.org/September2025/#3-Type-System))
-- Include introspection types compliant with the spec (e.g., `__Type`, `__InputValue`). ([Introspection System](https://spec.graphql.org/September2025/#4-Introspection))
+- Represent types, scalars, enums, interfaces, unions, input objects, lists, and non‑null types according to the spec’s type system. ([Type System](https://spec.graphql.org/September2025/sec-Type-System))
+- Include introspection types compliant with the spec (e.g., `__Type`, `__InputValue`). ([Introspection System](https://spec.graphql.org/September2025/sec-Introspection))
 
 ### **3. Resolver & Execution Engine**
-- Execute parsed operations by resolving fields against a defined schema. ([Execution Semantics](https://spec.graphql.org/September2025/#6-Execution))
-- Implement execution order, field collection, null propagation, and result coercion rules as specified. ([Execution Semantics](https://spec.graphql.org/September2025/#6-Execution))
-- Perform variable substitution and coercion according to spec rules. ([Input Values](https://spec.graphql.org/September2025/#2.10Input-Values))
+- Execute parsed operations by resolving fields against a defined schema. ([Execution Semantics](https://spec.graphql.org/September2025/sec-Execution))
+- Implement execution order, field collection, null propagation, and result coercion rules as specified. ([Execution Semantics](https://spec.graphql.org/September2025/sec-Execution))
+- Perform variable substitution and coercion according to spec rules. ([Input Values](https://spec.graphql.org/September2025/sec-Input-Values))
 
 ### **4. Input Coercion & Validation**
-- Validate literal values and variables against expected input types. ([Input Values](https://spec.graphql.org/September2025/#2.10Input-Values))
-- Apply input coercion rules for scalars, enums, lists, and input objects. ([Input Values](https://spec.graphql.org/September2025/#2.10Input-Values))
-- Enforce rules such as required non‑null fields in input objects and input object field uniqueness. ([Input Values](https://spec.graphql.org/September2025/#2.10Input-Values))
+- Validate literal values and variables against expected input types. ([Input Values](https://spec.graphql.org/September2025/sec-Input-Values))
+- Apply input coercion rules for scalars, enums, lists, and input objects. ([Input Values](https://spec.graphql.org/September2025/sec-Input-Values))
+- Enforce rules such as required non‑null fields in input objects and input object field uniqueness. ([Input Values](https://spec.graphql.org/September2025/sec-Input-Values))
 
 ### **5. Error Handling and Validation**
-- Perform all specification‑defined validation steps before execution (e.g., catch invalid syntax, incorrect fields, type mismatches). ([Validation Rules](https://spec.graphql.org/September2025/#5-Validation))
-- Produce error responses compliant with GraphQL error‑response format. ([Response Format](https://spec.graphql.org/September2025/#7-Response))
-- Preserve response ordering where required for legibility. ([Execution Semantics](https://spec.graphql.org/September2025/#6-Execution))
+- Perform all specification‑defined validation steps before execution (e.g., catch invalid syntax, incorrect fields, type mismatches). ([Validation Rules](https://spec.graphql.org/September2025/sec-Validation))
+- Produce error responses compliant with GraphQL error‑response format. ([Response Format](https://spec.graphql.org/September2025/sec-Response))
+- Preserve response ordering where required for legibility. ([Execution Semantics](https://spec.graphql.org/September2025/sec-Execution))
 
 ### **6. HTTP Transport Layer**
-- Expose a compliant GraphQL‑over‑HTTP interface. ([Transport Layer](https://spec.graphql.org/September2025/#7-Response))
-- Support batching and multipart requests as specified (if part of the official spec for HTTP transport). ([Transport Layer](https://spec.graphql.org/September2025/#7-Response))
+- Expose a compliant GraphQL‑over‑HTTP interface. ([Transport Layer](https://spec.graphql.org/September2025/sec-Response))
+- Support batching and multipart requests as specified (if part of the official spec for HTTP transport). ([Transport Layer](https://spec.graphql.org/September2025/sec-Response))
 
 ### **7. Federated Subgraph Support**
 - Later extend the core GraphQL implementation to support federation semantics:
@@ -53,8 +51,6 @@ The implementation will be **low‑level, spec‑compliant, and library‑orient
   - Provide federation‑specific introspection hooks and semantics.
   - Integrate smoothly with Apollo Gateway or similar orchestrators. ([Federation / Subgraph Guidelines](https://www.apollographql.com/docs/federation/federation-spec/))
 
-
----
 
 ## **Planned Workflow**
 
@@ -87,8 +83,6 @@ The implementation will be **low‑level, spec‑compliant, and library‑orient
 8. **Federation/Subgraph**
    - Design and implement federation extensions once core spec compliance is complete.
 
----
-
 ## **Future Extensions**
 
 - Support for mutations and subscriptions.
@@ -97,8 +91,6 @@ The implementation will be **low‑level, spec‑compliant, and library‑orient
 - Improved error handling and validation.
 - Integration with databases or external APIs.
 - Full Apollo Federation support as a modular subgraph.
-
----
 
 ## **Outcome**
 
