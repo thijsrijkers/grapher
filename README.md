@@ -32,39 +32,6 @@ Create a set of easy‑to‑use Go packages. The implementation will be **low‑
    - Adds metadata directives (e.g., `@key`) for integration with Apollo Gateway.
    - Enables the server to participate in a larger federated schema.
 
-
-
-## **Planned Workflow**
-
-1. **Spec Analysis**
-   - Study the September 2025 spec in depth.
-   - Map spec rules to implementation tasks and test cases.
-
-2. **Parser & AST**
-   - Build a parser that produces a complete AST for all valid GraphQL documents.
-   - Ensure the parser catches syntax errors per spec.
-
-3. **Type System**
-   - Implement the GraphQL type system (scalars, enums, objects, input objects, interfaces, unions).
-   - Support introspection types and directives.
-
-4. **Execution Engine**
-   - Create resolver abstractions and execution logic that follow spec semantics.
-
-5. **Validation & Coercion**
-   - Implement validation rules (type validation, uniqueness, required field checks).
-   - Implement input coercion rules for all input types including lists and objects.
-
-6. **Transport Layer**
-   - Build a spec‑compliant HTTP server integration for GraphQL queries.
-
-7. **Testing & Conformance**
-   - Develop a test suite based on spec examples and edge cases.
-   - Validate implementation against spec requirements.
-
-8. **Federation/Subgraph**
-   - Design and implement federation extensions once core spec compliance is complete.
-
 ## **Future Extensions**
 
 - Support for mutations and subscriptions.
