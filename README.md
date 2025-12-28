@@ -2,7 +2,7 @@
 
 <p align="center"><img src="assets/grapher.png" width="300"></p>
 
-Create a set of easy‑to‑use Go packages that implement [full support for the September 2025 GraphQL Specification](https://spec.graphql.org/September2025/#).  This includes language grammar, execution semantics, type system, coercion rules, validation rules, and all other normative behaviors defined in the spec. :contentReference[oaicite:1]{index=1}
+Create a set of easy‑to‑use Go packages that implement [full support for the September 2025 GraphQL Specification](https://spec.graphql.org/September2025/#).  This includes language grammar, execution semantics, type system, coercion rules, validation rules, and all other normative behaviors defined in the spec.
 
 The implementation will be **low‑level, spec‑compliant, and library‑oriented**, suitable for both standalone GraphQL servers and use as a **federated subgraph** in a broader architecture.
 
